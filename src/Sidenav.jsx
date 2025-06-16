@@ -13,11 +13,11 @@ const Sidenav = () => {
     
 
     return (
-        <div className='md:flex '>
+        <div className='md:flex  '>
             {/* Sidebar */}
             <div className="bg-[#292b48] shadow-xl  min-h-screen h-full  md:w-[250px]   mt-[70px]  text-white ">
                 <div className='flex flex-col gap-1 items-start px-5'>
-                    <h2 className="text-sm border-b border-gray-700 pb-2 mt-[10px] w-full text-gray-400 uppercase tracking-widest">
+                    <h2 className="text-sm border-b border-gray-700 pb-2 mt-[10px]  text-gray-400 uppercase tracking-widest">
                         Navigation
                     </h2>
 
