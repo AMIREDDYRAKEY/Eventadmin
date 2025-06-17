@@ -7,15 +7,13 @@ import Layout from './components/Layout';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        
-        <Route path="/" element={<Layout />}>
-          <Route path="/Registrations" element={<Registrations/>} />
-          
-        </Route>
-      </Routes>
-    </BrowserRouter>
+       <BrowserRouter>
+       <Routes>
+        <Route path="/" element={<Layout />} />
+              <Route path="/Registrations" element={<Registrations />} />
+                <Route path="/Events" element={<Events />} />
+       </Routes>
+       </BrowserRouter>
   );
 };
 

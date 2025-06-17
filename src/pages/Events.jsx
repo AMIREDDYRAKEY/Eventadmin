@@ -2,7 +2,9 @@ import React from 'react';
 
 const Events = () => {
   return (
-    <div className='md:ml-[200px] mt-[20px]'>
+    <div>
+      <div className='mt-[30px] ml-[100px]'> <button className='text-[#98a2cb] bg-[#292b48] px-5 py-2 rounded-lg font-semibold'>Back</button></div>
+    <div className='flex items-center  justify-center mt-[10px]'>
       <form className='bg-[#292b48] rounded-lg shadow-xl w-[580px]'>
         {/* Header */}
         <h3 className='text-[#98a2cb] text-sm px-4 py-3 border-b border-gray-700 font-semibold'>
@@ -99,6 +101,7 @@ const Events = () => {
           </div>
         </div>
       </form>
+    </div>
     </div>
   );
 };
