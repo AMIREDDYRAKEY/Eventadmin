@@ -6,14 +6,14 @@ import Sidenav from './Sidenav';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
- 
+
   return (
     <div className="">
       {/* Navbar */}
       <div className='bg-[#292b48] h-[70px] z-50 flex justify-between px-5 md:px-10 shadow-lg fixed w-full items-center text-white'>
-        
+
         <div className='flex items-center gap-5'>
-          <button className='text-3xl md:hidden' onClick={()=>setOpen(!open)}>
+          <button className='text-3xl md:hidden' onClick={() => setOpen(!open)}>
             <IoMdMenu />
           </button>
           <h3 className='text-xl md:text-2xl font-bold hidden md:flex'>Tech Explore</h3>
@@ -33,14 +33,15 @@ const Navbar = () => {
         </div>
       </div>
 
-       {/* sidenav */}
-   {open && (
-<div className={`fixed md:top-[70px] left-0 z-40 transition-transform duration-300 md:flex hidden md:translate-x-0 md:static`}>
-        <Sidenav  />
-      </div>
-   )}
-   <div className={`fixed md:top-[70px] left-0 z-40 transition-transform duration-300 md:flex hidden md:translate-x-0 md:static`}>
-        <Sidenav  />
+      {/* sidenav */}
+      {
+      open && (
+        <div className={`fixed md:top-[70px] left-0 z-40 transition-transform duration-300 md:hidden flex md:translate-x-0 md:static`}>
+          <Sidenav />
+        </div>
+      )}
+      <div className={`fixed md:top-[70px] left-0 z-40 transition-transform duration-300 md:flex hidden md:translate-x-0 md:static`}>
+        <Sidenav />
       </div>
 
     </div>

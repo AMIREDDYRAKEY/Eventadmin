@@ -34,12 +34,12 @@ const Registrations = () => {
     },
     ]
   return (
-    <div className='  md:ml-[150px]'>
-            <h3 className='text-2xl md:ml-[200px] mt-[30px] text-[#98a2cb] font-bold'>Students Registartions</h3>
+    <div className='  md:ml-[150px] '>
+            <h3 className='text-2xl md:ml-[200px]  mt-[30px] text-[#98a2cb] font-bold'>Students Registartions</h3>
              {
             registrations.map((info,index)=>(
             <div
-        className='border-[1px] border-[#545a72] rounded-lg grid grid-cols-4 gap-10 md:pl-[50px]  items-center shadow-xl mt-[20px] md:h-[50px] bg-[#292b48] lg:w-[800px]'
+        className='border-[1px] border-[#545a72] rounded-lg grid grid-cols-4 gap-10 pl-[50px]  items-center shadow-xl mt-[20px] h-[50px] bg-[#292b48] w-[100px] md:w-[800px]'
         key={index}
       >
         <p className='font-semibold text-[#98a2cb]'>{info.Sno}</p>

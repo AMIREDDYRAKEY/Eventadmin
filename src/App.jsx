@@ -12,7 +12,7 @@ const App = () => {
         
         <Route path="/" element={<Layout />}>
           <Route path="/Registrations" element={<Registrations/>} />
-          <Route path="/events" element={<Events />} />
+          
         </Route>
       </Routes>
     </BrowserRouter>

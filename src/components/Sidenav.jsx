@@ -12,11 +12,10 @@ const Sidenav = () => {
     const [color, setcolor] = useState(false);
     const [active, setactive] = useState('dashboard');
     const navigate=useNavigate('')
-
     return (
         <div className='md:flex  '>
             {/* Sidebar */}
-            <div className="bg-[#292b48] shadow-xl  min-h-screen h-full  md:w-[250px]   mt-[70px]  text-white ">
+            <div className="bg-[#292b48] shadow-xl  min-h-screen h-full w-[250px] md:w-[250px]   mt-[70px]  text-white ">
                 <div className='flex flex-col gap-1 items-start px-5'>
                     <h2 className="text-sm border-b border-gray-700 pb-2 mt-[10px]  text-gray-400 uppercase tracking-widest">
                         Navigation
@@ -31,6 +30,7 @@ const Sidenav = () => {
                                 onClick={() => {
                                     setdashboardopen(!dashboardopen);
                                     setactive('dashboard');
+
                                 }}
                             >
                                 Dashboard
@@ -40,7 +40,7 @@ const Sidenav = () => {
                         {dashboardopen && (
                             <div className='flex flex-col gap-4 mt-[10px] ml-[10px] text-[#74779a]'>
                                 <li className='hover:text-white text-sm text-center'>
-                                    <button onClick={() =>  navigate('/Registrations')}>Registrations</button>
+                                    <button onClick={() => navigate('/Registartions') }>Registrations</button>
                                 </li>
                                 <li className='hover:text-white text-sm'>
                                     <button>Analytics</button>
@@ -96,7 +96,7 @@ const Sidenav = () => {
             {/*  Content */}
             <div className='  md:mt-[80px] text-white'>
                 {active === 'dashboard' && <Dashboard />}
-                {active === 'registrations' && <Registrations />}
+                {/* {active === 'registrations' && <Registrations />} */}
                  {active === 'Events' && <Events/>}
             </div>
             {/*Events */}
