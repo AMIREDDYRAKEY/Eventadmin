@@ -6,7 +6,7 @@ import Sidenav from './Sidenav';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
+ 
   return (
     <div className="">
       {/* Navbar */}
@@ -19,7 +19,7 @@ const Navbar = () => {
           <h3 className='text-xl md:text-2xl font-bold hidden md:flex'>Tech Explore</h3>
         </div>
 
-        {/* Right Side */}
+        {/* content right */}
         <div className='flex items-center gap-5'>
           <button className='bg-[#a06ee0] px-3 md:px-5 text-sm py-1 md:py-2 rounded-lg hover:bg-blue-600'>
             Create Event
@@ -33,7 +33,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Sidebar */}
+       {/* sidenav */}
       {
       open &&(
       <div className={`fixed md:top-[70px] left-0 z-40 transition-transform duration-300  md:translate-x-0 md:static`}>

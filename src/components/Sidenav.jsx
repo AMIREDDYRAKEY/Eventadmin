@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { IoMdHome } from "react-icons/io";
 import { VscSymbolEvent } from "react-icons/vsc";
-import Dashboard from './components/Dashboard';
-import Registrations from './components/Registrations';
-import Events from './components/Events';
+import Dashboard from '../pages/Dashboard';
+import Registrations from '../pages/Registrations';
+import Events from '../pages/Events';
+import { useNavigate } from 'react-router-dom';
 
 const Sidenav = () => {
     const [dashboardopen, setdashboardopen] = useState(false);
     const [events, setevents] = useState(false);
     const [color, setcolor] = useState(false);
     const [active, setactive] = useState('dashboard');
-    
+    const navigate=useNavigate('')
 
     return (
         <div className='md:flex  '>
@@ -30,6 +31,7 @@ const Sidenav = () => {
                                 onClick={() => {
                                     setdashboardopen(!dashboardopen);
                                     setactive('dashboard');
+                                    // navigate('/Dashboard')
                                 }}
                             >
                                 Dashboard
@@ -39,7 +41,7 @@ const Sidenav = () => {
                         {dashboardopen && (
                             <div className='flex flex-col gap-4 mt-[10px] ml-[10px] text-[#74779a]'>
                                 <li className='hover:text-white text-sm text-center'>
-                                    <button onClick={() => setactive('registrations')}>Registrations</button>
+                                    <button onClick={() => setactive( navigate('/Registrations')) }>Registrations</button>
                                 </li>
                                 <li className='hover:text-white text-sm'>
                                     <button>Analytics</button>

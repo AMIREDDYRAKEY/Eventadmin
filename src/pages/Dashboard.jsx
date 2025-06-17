@@ -3,8 +3,10 @@ import { FaUsers } from "react-icons/fa";
 import { PiUsersFill } from "react-icons/pi";
 import { MdEmojiEvents } from "react-icons/md";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
+     
     const data = [
         {
             title: 'Total Users',
