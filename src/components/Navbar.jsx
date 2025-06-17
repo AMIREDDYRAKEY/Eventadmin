@@ -11,7 +11,7 @@ const Navbar = () => {
     <div className="">
       {/* Navbar */}
       <div className='bg-[#292b48] h-[70px] z-50 flex justify-between px-5 md:px-10 shadow-lg fixed w-full items-center text-white'>
-        {/* Left Side */}
+        
         <div className='flex items-center gap-5'>
           <button className='text-3xl md:hidden' onClick={()=>setOpen(!open)}>
             <IoMdMenu />
@@ -34,14 +34,12 @@ const Navbar = () => {
       </div>
 
        {/* sidenav */}
-      {
-      open &&(
-      <div className={`fixed md:top-[70px] left-0 z-40 transition-transform duration-300  md:translate-x-0 md:static`}>
+   {open && (
+<div className={`fixed md:top-[70px] left-0 z-40 transition-transform duration-300 md:flex hidden md:translate-x-0 md:static`}>
         <Sidenav  />
       </div>
-      )
-}
-<div className={`fixed md:top-[70px] left-0 z-40 transition-transform duration-300 md:flex hidden md:translate-x-0 md:static`}>
+   )}
+   <div className={`fixed md:top-[70px] left-0 z-40 transition-transform duration-300 md:flex hidden md:translate-x-0 md:static`}>
         <Sidenav  />
       </div>
 

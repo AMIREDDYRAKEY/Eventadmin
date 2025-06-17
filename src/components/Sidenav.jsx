@@ -31,7 +31,6 @@ const Sidenav = () => {
                                 onClick={() => {
                                     setdashboardopen(!dashboardopen);
                                     setactive('dashboard');
-                                    // navigate('/Dashboard')
                                 }}
                             >
                                 Dashboard
@@ -41,7 +40,7 @@ const Sidenav = () => {
                         {dashboardopen && (
                             <div className='flex flex-col gap-4 mt-[10px] ml-[10px] text-[#74779a]'>
                                 <li className='hover:text-white text-sm text-center'>
-                                    <button onClick={() => setactive('registrations') }>Registrations</button>
+                                    <button onClick={() =>  navigate('/Registrations')}>Registrations</button>
                                 </li>
                                 <li className='hover:text-white text-sm'>
                                     <button>Analytics</button>
