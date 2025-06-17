@@ -35,7 +35,7 @@ const Registrations = () => {
     ]
   return (
     <div className='  md:ml-[150px] '>
-            <h3 className='text-2xl md:ml-[200px]  mt-[30px] text-[#98a2cb] font-bold'>Students Registartions</h3>
+            <h3 className='text-2xl md:ml-[200px]  mt-[30px] text-[#98a2cb] font-bold'>Students Registrations</h3>
              {
             registrations.map((info,index)=>(
             <div
