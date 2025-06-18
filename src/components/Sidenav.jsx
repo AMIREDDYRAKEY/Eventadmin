@@ -13,7 +13,7 @@ const Sidenav = () => {
     const [active, setactive] = useState('dashboard');
     const navigate=useNavigate('')
     return (
-        <div className='md:flex  '>
+        <div className='md:flex min-h-screen h-full  '>
             {/* Sidebar */}
             <div className="bg-[#292b48] shadow-xl  min-h-screen h-full w-[250px] md:w-[250px]   mt-[70px]  text-white ">
                 <div className='flex flex-col gap-1 items-start px-5'>
@@ -46,6 +46,7 @@ const Sidenav = () => {
                                 <li className='hover:text-white text-sm'>
                                     <button>Analytics</button>
                                 </li>
+                                
                             </div>
                         )}
                     </div>
@@ -100,10 +101,9 @@ const Sidenav = () => {
                 {/* {active === 'Registrations' && <Registrations />} */}
                  
                  {active === 'Events' && <Events/>}
-                 
+                  
             </div>
-            {/*Events */}
-                
+
         </div>
     );
 };
