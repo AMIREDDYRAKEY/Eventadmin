@@ -1,14 +1,16 @@
 import React from 'react';
-import Navbar from './Navbar';  
-import { Outlet } from 'react-router-dom';  
-import Registrations from '../pages/Registrations';
+import Navbar from './Navbar';
+import { Outlet } from 'react-router-dom';
+
 const Layout = () => {
   return (
-    <div>
+    <div className="min-h-screen overflow-hidden bg-[#1b1f38]">
       <Navbar />
-      <main>
-        <Outlet />  
+      <div className="flex">
+        <main className="flex-1 md:ml-[250px] mt-[70px] p-4">
+          <Outlet />
         </main>
+      </div>
     </div>
   );
 };

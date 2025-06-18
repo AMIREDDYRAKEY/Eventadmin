@@ -1,55 +1,40 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Registrations = () => {
-    const registrations =[
-    {
-        Sno:'1',
-        Name:'Babu',
-        Idno:'24HM5A0502',
-        Section:'Cse-A'
-    },
-    {
-        Sno:'2',
-        Name:'Harish',
-        Idno:'23HM1A05I2',
-        Section:'Cse-C'
-    },
-    {
-        Sno:'3',
-        Name:'Govardhan',
-        Idno:'23HM1A0561',
-        Section:'Cse-B'
-    },
-     {
-        Sno:'4',
-        Name:'Rajesh',
-        Idno:'23HM1A05I2',
-        Section:'Cse-C'
-    },
-     {
-        Sno:'5',
-        Name:'Mohan',
-        Idno:'24hm5a0519',
-        Section:'Cse-c'
-    },
-    ]
-  return (
-    <div className='  md:ml-[150px] '>
-            <h3 className='text-2xl md:ml-[200px]  mt-[30px] text-[#98a2cb] font-bold'>Students Registrations</h3>
-             {
-            registrations.map((info,index)=>(
-            <div
-        className='border-[1px] border-[#545a72] rounded-lg grid grid-cols-4 gap-10 pl-[50px]  items-center shadow-xl mt-[20px] h-[50px] bg-[#292b48] w-[100px] md:w-[800px]'
-        key={index}
-      >
-        <p className='font-semibold text-[#98a2cb]'>{info.Sno}</p>
-        <p className='font-semibold text-[#98a2cb]'>{info.Name}</p>
-        <p className='font-semibold text-[#98a2cb] uppercase'>{info.Idno}</p>
-        <p className='font-semibold text-[#98a2cb]'>{info.Section}</p>
-      </div>
-            ))}
-    </div>  
-  )
-}
+  const navigate = useNavigate();
+  const registrations = [
+    { Sno: '1', Name: 'Babu', Idno: '24HM5A0502', Section: 'Cse-A' },
+    { Sno: '2', Name: 'Harish', Idno: '23HM1A05I2', Section: 'Cse-C' },
+    { Sno: '3', Name: 'Govardhan', Idno: '23HM1A0561', Section: 'Cse-B' },
+    { Sno: '4', Name: 'Rajesh', Idno: '23HM1A05I2', Section: 'Cse-C' },
+    { Sno: '5', Name: 'Mohan', Idno: '24hm5a0519', Section: 'Cse-C' },
+  ];
 
-export default Registrations
+  return (
+    <div className="min-h-screen pb-10">
+      <div className="flex flex-col md:flex-row justify-between items-center md:px-8 px-4 pt-8">
+     
+        <h3 className="text-2xl text-[#98a2cb] font-bold text-center">Students Registrations</h3>
+        <button className="text-[#98a2cb] bg-[#292b48] px-5 py-2 rounded-lg font-semibold">
+          Add Participant
+        </button>
+      </div>
+      <div className="flex flex-col items-center mt-8">
+        {registrations.map((info, index) => (
+          <div
+            key={index}
+            className="bg-[#292b48] border-[1px] border-[#545a72] rounded-lg grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-10 px-6 py-4 items-center shadow-xl mt-4 w-full max-w-[800px]"
+          >
+            <p className="font-semibold text-[#98a2cb]">{info.Sno}</p>
+            <p className="font-semibold text-[#98a2cb]">{info.Name}</p>
+            <p className="font-semibold text-[#98a2cb] uppercase">{info.Idno}</p>
+            <p className="font-semibold text-[#98a2cb]">{info.Section}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Registrations;
