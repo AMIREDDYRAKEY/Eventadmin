@@ -36,7 +36,7 @@ const Registrations = () => {
     },
   ]
   return (
-    <div>
+    <div className='pb-[40px]'>
       <div className='md:flex md:flex-row flex flex-col   justify-between md:px-[140px]'>
         <div className=' md:pt-[50px] pt-[40px] ' onClick={()=>navigate('/')}> <button className='text-[#98a2cb] bg-[#292b48] md:px-5 md:py-2 rounded-lg font-semibold px-3 py-2  md:ml-0 ml-[10px]'>Back</button></div>
         <h3 className='text-2xl   text-[#98a2cb] text-center font-bold mt-[50px]'>Students Registrations</h3>
