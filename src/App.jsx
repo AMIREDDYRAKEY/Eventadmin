@@ -4,7 +4,7 @@ import Dashboard from './pages/Dashboard';
 import Registrations from './pages/Registrations';
 import Events from './pages/Events';
 import Layout from './components/Layout';
-
+import Allevents from './pages/Allevents';
 const App = () => {
   return (
        <BrowserRouter>
@@ -12,6 +12,7 @@ const App = () => {
         <Route path="/" element={<Layout />} />
               <Route path="/Registrations" element={<Registrations />} />
                 <Route path="/Events" element={<Events />} />
+                <Route path="/Allevents" element={<Allevents />} />
        </Routes>
        </BrowserRouter>
   );

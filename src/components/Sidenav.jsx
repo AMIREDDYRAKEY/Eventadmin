@@ -64,7 +64,7 @@ const Sidenav = () => {
                         {events && (
                             <div className='flex flex-col gap-4 mt-[10px] ml-[10px] text-[#74779a]'>
                                 <li className='hover:text-white text-sm text-center'><button onClick={()=>navigate('/Events')}>Create Event</button></li>
-                                <li className='text-center hover:text-white text-sm'><button>Create Ticket</button></li>
+                                <li className='text-center hover:text-white text-sm ml-[-23px]' onClick={()=>navigate('/Allevents')}><button>All Events</button></li>
                                 <li className='text-center hover:text-white text-sm ml-[-23px]'><button>Discount</button></li>
                                 <li className='text-center hover:text-white text-sm ml-[-43px]'><button>Guest</button></li>
                             </div>

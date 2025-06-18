@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Registrations = () => {
+  const navigate =useNavigate('')
   const registrations = [
     {
       Sno: '1',
@@ -35,19 +37,19 @@ const Registrations = () => {
   ]
   return (
     <div>
-      <div className='flex mt-[50px] justify-between md:px-[140px]'>
-        <div className='bg-[#292b48] px-5 py-2 rounded-lg font-semibold '> <button className='text-[#98a2cb]'>Back</button></div>
-        <h3 className='text-2xl   text-[#98a2cb] text-center font-bold'>Students Registrations</h3>
-        <div className='bg-[#292b48] px-5 py-2 rounded-lg font-semibold  '> <button className='text-[#98a2cb]'>Add Participant</button></div>
+      <div className='md:flex md:flex-row flex flex-col   justify-between md:px-[140px]'>
+        <div className=' md:pt-[50px] pt-[40px] ' onClick={()=>navigate('/')}> <button className='text-[#98a2cb] bg-[#292b48] md:px-5 md:py-2 rounded-lg font-semibold px-3 py-2  md:ml-0 ml-[10px]'>Back</button></div>
+        <h3 className='text-2xl   text-[#98a2cb] text-center font-bold mt-[50px]'>Students Registrations</h3>
+        <div className='md:pl-0 pl-[140px]  '> <button className='text-[#98a2cb] bg-[#292b48] mt-[30px] md:px-5 md:py-2 px-3 py-1 rounded-lg font-semibold'>Add Participant</button></div>
       </div>
       <div className='  flex items-center justify-center flex-col '>
         {
           registrations.map((info, index) => (
             <div
-              className='border-[1px] md:py-0 md:px-0 px-[100px] py-5  border-[#545a72] rounded-lg md:grid md:grid-cols-4 grid-cols-1 md:gap-10 md:pl-[50px]  items-center shadow-xl mt-[20px] md:h-[50px] bg-[#292b48]  md:w-[800px]'
+              className='border-[1px] md:py-0 md:px-0 px-[70px] py-5  border-[#545a72] rounded-lg md:grid md:grid-cols-4 grid grid-cols- md:gap-10 md:pl-[50px]  items-center shadow-xl mt-[20px] md:h-[50px] bg-[#292b48]  md:w-[800px]'
               key={index}
             >
-              <p className='font-semibold text-[#98a2cb] md:flex hidden'>{info.Sno}</p>
+              <p className='font-semibold text-[#98a2cb] '>{info.Sno}</p>
               <p className='font-semibold text-[#98a2cb]'>{info.Name}</p>
               <p className='font-semibold text-[#98a2cb] uppercase'>{info.Idno}</p>
               <p className='font-semibold text-[#98a2cb]'>{info.Section}</p>
