@@ -30,6 +30,7 @@ const Sidenav = () => {
                                 onClick={() => {
                                     setdashboardopen(!dashboardopen);
                                     setactive('dashboard');
+                                    
 
                                 }}
                             >
@@ -95,7 +96,7 @@ const Sidenav = () => {
 
             {/*  Content */}
             <div className='  md:mt-[80px] text-white'>
-                {active === 'dashboard' && <Dashboard />}
+                {/* {active === 'dashboard' && <Dashboard />} */}
                 {/* {active === 'Registrations' && <Registrations />} */}
                  
                  {active === 'Events' && <Events/>}

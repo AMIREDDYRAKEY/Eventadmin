@@ -34,8 +34,15 @@ const Navbar = () => {
       </div>
 
       {/* sidenav */}
+      {
+        open &&(
+          <div className={`fixed md:top-[70px] left-0 z-40 transition-transform duration-300 md:hidden flex  md:translate-x-0 md:static`}>
+        <Sidenav />
+      </div>
+        )
+      }
      
-      <div className={`fixed md:top-[70px] left-0 z-40 transition-transform duration-300  md:translate-x-0 md:static`}>
+      <div className={`fixed md:top-[70px] left-0 z-40 transition-transform duration-300 md:flex hidden  md:translate-x-0 md:static`}>
         <Sidenav />
       </div>
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import Layout from '../components/Layout';
 const Events = () => {
   const navigate=useNavigate('')
   return (
-    <div>
-      <div className='mt-[30px] md:ml-[100px] ml-[10px]'> <button className='text-[#98a2cb] bg-[#292b48] px-5 py-2 rounded-lg font-semibold' onClick={()=>navigate('/')}>Back</button></div>
-    <div className='md:flex md:flex-row flex flex-col items-center  justify-center mt-[10px]'>
-      <form className='bg-[#292b48] rounded-lg shadow-xl w-[300px] md:w-[580px]'>
+    <div className='pb-[40px]'>
+      <div><Layout/></div>
+      {/* <div className='mt-[30px] md:ml-[100px] ml-[10px]'> <button className='text-[#98a2cb] bg-[#292b48] px-5 py-2 rounded-lg font-semibold' onClick={()=>navigate('/')}>Back</button></div> */}
+    <div className='md:flex md:flex-row flex flex-col items-center md:mt-[-46%] md:ml-[200px] justify-center md:pt-0 pt-[100px]'>
+      <form className='bg-[#292b48] rounded-lg shadow-xl w-[300px]  md:w-[580px]'>
         {/* Header */}
         <h3 className='text-[#98a2cb] text-sm px-4 py-3 border-b border-gray-700 font-semibold'>
           Create Event

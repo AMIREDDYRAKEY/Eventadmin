@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import Layout from '../components/Layout'
 const Registrations = () => {
   const navigate =useNavigate('')
   const registrations = [
@@ -37,12 +37,13 @@ const Registrations = () => {
   ]
   return (
     <div className='pb-[40px]'>
-      <div className='md:flex md:flex-row flex flex-col   justify-between md:px-[140px]'>
-        <div className=' md:pt-[50px] pt-[40px] ' onClick={()=>navigate('/')}> <button className='text-[#98a2cb] bg-[#292b48] md:px-5 md:py-2 rounded-lg font-semibold px-3 py-2  md:ml-0 ml-[10px]'>Back</button></div>
-        <h3 className='text-2xl   text-[#98a2cb] text-center font-bold mt-[50px]'>Students Registrations</h3>
+      <div className=''><Layout/></div>
+      <div className='md:flex md:flex-row flex flex-col md:ml-[300px] md:mt-[-45%] md:pt-0 pt-[100px] justify-between md:px-[140px]'>
+        {/* <div className=' md:pt-[50px] pt-[40px] ' onClick={()=>navigate('/')}> <button className='text-[#98a2cb] bg-[#292b48] md:px-5 md:py-2 rounded-lg font-semibold px-3 py-2  md:ml-0 ml-[10px]'>Back</button></div> */}
+        <h3 className='text-2xl   text-[#98a2cb] text-center font-bold md:ml-[200px] mt-[50px]'>Students Registrations</h3>
         <div className='md:pl-0 pl-[140px]  '> <button className='text-[#98a2cb] bg-[#292b48] mt-[30px] md:px-5 md:py-2 px-3 py-1 rounded-lg font-semibold'>Add Participant</button></div>
       </div>
-      <div className='  flex items-center justify-center flex-col '>
+      <div className=' md:ml-[300px] flex items-center justify-center flex-col '>
         {
           registrations.map((info, index) => (
             <div
