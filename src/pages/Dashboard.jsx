@@ -32,11 +32,11 @@ const Dashboard = () => {
 
     return (
         <div className=''>
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 '>
+            <div className='grid grid-cols-1 md:gap-0 gap-10 sm:grid-cols-2 lg:grid-cols-4 '>
                 {data.map((info, index) => (
                     <div
                         key={index}
-                        className='shadow-xl flex flex-col justify-center md:h-[100px] px-4 md:w-[250px] rounded-xl bg-[#292b48] hover:scale-105 transition-transform duration-200'
+                        className='shadow-xl flex flex-col justify-center md:h-[100px] h-[120px]  px-10 md:w-[250px] rounded-xl bg-[#292b48] hover:scale-105 transition-transform duration-200'
                     >
                         <div className='flex items-center gap-2 mb-2'>
                             <span className='text-[#98a2cb] text-xl'>{info.icon}</span>
