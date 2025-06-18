@@ -4,7 +4,7 @@ import { PiUsersFill } from "react-icons/pi";
 import { MdEmojiEvents } from "react-icons/md";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
-import Layout from '../components/Layout';
+
 const Dashboard = () => {
      
     const data = [
@@ -32,8 +32,7 @@ const Dashboard = () => {
 
     return (
         <div className=''>
-            <div><Layout/></div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:ml-[300px] md:mt-[-43%]'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 '>
                 {data.map((info, index) => (
                     <div
                         key={index}
