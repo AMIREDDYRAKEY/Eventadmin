@@ -6,6 +6,7 @@ const Addparticipant = () => {
     const [Name,setname]=useState('')
     const [Idno,setIdno]=useState('')
     const [section,setsection]=useState('')
+    const [submit ,setsubmit] =useState('')
     const [errors,seterrors] = useState({
         sno:'',
         Name:'',
@@ -13,6 +14,7 @@ const Addparticipant = () => {
         section:''
     })
  const handlesubmit=()=>{
+    setsubmit(!submit)
     let isvalid=true;
     //  e.preventDefault();
     if(sno.trim() === ''){
@@ -56,14 +58,14 @@ const Addparticipant = () => {
 
  }
   return (
-    <div className='flex items-center justify-center'>
+    <div className='flex items-center justify-center z-0'>
          <form action="" className=' pb-[20px] px-3 shadow-lg shadow-[#161720] bg-[#292b48] rounded-lg flex flex-col gap-4 w-[300px] mt-[20px]'>
             <h3 className='text-2xl text-[#98a2cb] font-bold text-center mt-[20px]'>Add Student </h3>
             {/* inputs */}
            <div className="flex flex-col gap-4 overflow-y-auto">
                 {/* sno */}
                 <div className='flex flex-col '>
-                    <input type="text" placeholder='Sno' value={sno} className='py-2 px-3 md:w-[270px] bg-[#1b1f38] rounded-lg' onChange={(e)=>setsno(e.target.value)}/>
+                    <input type="text" placeholder='Sno' value={sno} className='py-2 px-3 md:w-[270px] text-white bg-[#1b1f38] rounded-lg' onChange={(e)=>setsno(e.target.value)}/>
                 <span className='text-red-600 ml-[5px] font-semibold'>{errors.sno}</span>
                 </div>
                 {/* Name */}
@@ -84,6 +86,16 @@ const Addparticipant = () => {
                 <button className='bg-[#1b1f38] py-2 px-3 md:w-[270px] rounded-xl text-[#98a2cb] font-bold ' onClick={handlesubmit}>Submit</button>
             </div>
          </form>
+         {/* submitted */}
+        
+         {
+            submit &&(
+                 <div className='top-0 right-3 fixed z-50'>
+                    <p>Student Added Sucessfully</p>
+                 </div>
+            )
+         }
+         
     </div>
   )
 }

@@ -38,7 +38,7 @@ const Registrations = () => {
         <div><h3 className="text-2xl text-[#98a2cb] font-bold ml-[50px] text-center">Students Registrations</h3></div>
 
       </div>
-      <div className='text-end md:mt-[-50px] mt-[30px]  '><button className="text-[#98a2cb] z-50 relative cursor-pointer bg-[#292b48] px-5 py-2  rounded-lg font-semibold " onClick={()=>setaddstu(!addstu)}>
+      <div className='text-end md:mt-[-50px] mt-[30px]  '><button className="text-[#98a2cb] md:z-50 relative cursor-pointer bg-[#292b48] px-5 py-2  rounded-lg font-semibold " onClick={()=>setaddstu(!addstu)}>
           Add Participant
         </button></div>
       <div className="flex flex-col items-center mt-8">
@@ -54,7 +54,7 @@ const Registrations = () => {
           </div>
         ))}
       </div>
-     <div className='fixed top-1/4  left-1/2 z-50'>
+     <div className='fixed md:top-1/4  md:left-1/2 top-1/4 right-2   '>
   {
     addstu && (
       <div><Addparticipant /></div>
