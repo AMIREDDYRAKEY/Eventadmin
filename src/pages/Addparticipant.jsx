@@ -58,7 +58,7 @@ const Addparticipant = () => {
 
  }
   return (
-    <div className='flex items-center justify-center z-0'>
+    <div className='flex items-center justify-center  z-0'>
          <form action="" className=' pb-[20px] px-3 shadow-lg shadow-[#161720] bg-[#292b48] rounded-lg flex flex-col gap-4 w-[300px] mt-[20px]'>
             <h3 className='text-2xl text-[#98a2cb] font-bold text-center mt-[20px]'>Add Student </h3>
             {/* inputs */}
@@ -88,13 +88,13 @@ const Addparticipant = () => {
          </form>
          {/* submitted */}
         
-         {
+         {/* {
             submit &&(
                  <div className='top-0 right-3 fixed z-50'>
                     <p>Student Added Sucessfully</p>
                  </div>
             )
-         }
+         } */}
          
     </div>
   )
