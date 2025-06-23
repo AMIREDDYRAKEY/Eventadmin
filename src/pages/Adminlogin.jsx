@@ -4,24 +4,15 @@ import { IoCloseSharp } from "react-icons/io5";
 const Adminlogin = () => {
   const [sub, setsub] = useState('')
   const [open,setopen]=useState('')
-  const [Adminname,setAdminname]=useState('')
   const [password ,setpassword]=useState('')
   const [Confirmpassword,setConfirmpassword]=useState('')
   const [errors,seterrors]=useState({
-    Adminname:'',
     password:'',
     Confirmpassword:''
   });
   const handlesubmit =(e)=>{
     e.preventDefault();
     let isValid=true
-    if(Adminname.trim()===""){
-      seterrors((errors) =>({...errors,Adminname:'Required Admin Name'}) )
-      isValid=false
-    }
-    else{
-      seterrors((errors) =>({...errors,Adminname:''}) )
-    }
     // Passowrd
     if(password.trim()===""){
       seterrors((errors)=>({...errors,password:'Password Required'}))
@@ -33,7 +24,7 @@ const Adminlogin = () => {
     else{
       seterrors((errors)=>({...errors,password:''}))
     }
-    // Idno
+    // Confrim Passowrd
     if(Confirmpassword.trim()===""){
       seterrors((errors)=>({...errors,Confirmpassword:'Please Confirm Password'}))
     }
@@ -42,7 +33,6 @@ const Adminlogin = () => {
     }
     if(isValid){
       setopen(true)
-      setAdminname('')
       setpassword('')
       setConfirmpassword('')
     }
@@ -57,7 +47,7 @@ const Adminlogin = () => {
     <div>
       <div className="min-h-screen bg-gradient-to-br from-[#0b132b] via-[#2a1b3d] to-[#3a506b]">
         <div className="flex items-center justify-center  ">
-          <div className=" pb-[20px] md:w-[320px] w-[300px] lg:mt-[7%] mt-[100px] rounded-lg shadow-lg  shadow-[#4b3c63]  bg-[#34244c]">
+          <div className=" pb-[20px] md:w-[320px] w-[300px] lg:mt-[8%] mt-[100px] rounded-lg shadow-lg  shadow-[#4b3c63]  bg-[#34244c]">
             {/* user */}
             <div className="flex justify-center mt-[-40px]">
               <div className="flex items-center justify-center bg-[#403f68] h-[80px] w-[80px] rounded-full">
@@ -68,9 +58,6 @@ const Adminlogin = () => {
               <h3 className="text-4xl text-white font-semibold uppercase mt-[10px]">Login </h3>
 
               <div className="flex flex-col gap-3 mt-[-10px] items-center justify-center">
-                <span className='flex flex-col  '> <input type="text" placeholder="Admin Name" value={Adminname} className="w-[250px] px-3 rounded-xl py-[7px] bg-[#34244c] border-[1px] text-gray-400" onChange={(e) => setAdminname(e.target.value)} />
-                {errors.Adminname && <span className='text-red-600 ml-[10px] mt-[5px]'>{errors.Adminname}</span>}
-              </span>
                <span className='flex flex-col'> <input type="Password" placeholder="Password" value={password} className="w-[250px] px-3 rounded-xl py-[7px] bg-[#34244c] border-[1px] text-gray-400" onChange={(e) => setpassword(e.target.value)} />
                 {errors.password && <span className='text-red-600 ml-[10px] mt-[5px]'>{errors.password}</span>}
               </span>
