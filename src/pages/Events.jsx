@@ -5,7 +5,7 @@ const Events = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen pb-10">
+    <div className="min-h-screen pb-10 relative md:z-[100]">
       <div className="flex justify-center ">
         <form className="bg-[#292b48] rounded-lg shadow-xl w-full max-w-[580px] p-5">
           <h3 className="text-[#98a2cb] text-sm border-b border-gray-700 pb-3 font-semibold">

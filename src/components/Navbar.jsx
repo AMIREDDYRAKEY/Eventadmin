@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { IoMdMenu, IoIosNotifications } from 'react-icons/io';
 import { CgProfile } from 'react-icons/cg';
 import Sidenav from './Sidenav';
-
+import Adminlogin from '../pages/Adminlogin';
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [adminopen ,setadminopen]=useState('')
 
   return (
     <div className="fixed top-0 left-0 w-full z-50">
@@ -23,8 +24,8 @@ const Navbar = () => {
 
         {/* Right content */}
         <div className="flex items-center gap-5">
-          <button className="bg-[#a06ee0] px-3 md:px-5 text-sm py-1 md:py-2 rounded-lg hover:bg-blue-600 transition-colors">
-            Create Event
+          <button className="bg-[#a06ee0] px-3 md:px-5 text-sm py-1 md:py-2 rounded-lg hover:bg-blue-600 transition-colors" onClick={()=>setadminopen(!adminopen)}>
+            Add Admin
           </button>
           <button className="text-2xl" aria-label="Notifications">
             <IoIosNotifications />
@@ -33,7 +34,14 @@ const Navbar = () => {
             <CgProfile />
           </button>
         </div>
+         
       </div>
+      {
+        adminopen&&(
+        
+        <Adminlogin/>
+  
+      )}
 
       {/* Sidenav */}
       <div
@@ -41,8 +49,9 @@ const Navbar = () => {
           open ? 'translate-x-0' : '-translate-x-full'
         } md:translate-x-0 md:static`}
       >
-        <Sidenav />
+        <Sidenav adminopen={adminopen} setadminopen={setadminopen} />
       </div>
+       
     </div>
   );
 };
