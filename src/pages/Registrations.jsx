@@ -35,10 +35,10 @@ const Registrations = () => {
   return (
     <div className="min-h-screen pb-10">
       <div className="flex flex-col md:flex-row justify-center gap-10 items-center md:px-8 px-4 pt-8">
-        <div><h3 className="text-2xl text-[#98a2cb] font-bold ml-[50px] text-center">Students Registrations</h3></div>
+        <div><h3 className="md:text-2xl text-[#98a2cb] font-bold md:ml-[50px] text-4xl text-center">Students Registrations</h3></div>
 
       </div>
-      <div className='text-end md:mt-[-50px] mt-[30px]  '><button className="text-[#98a2cb] md:z-50 relative cursor-pointer bg-[#292b48] px-5 py-2  rounded-lg font-semibold " onClick={()=>setaddstu(!addstu)}>
+      <div className='text-end md:mt-[-50px] mt-[30px]  '><button className="text-[#98a2cb] md:z-50 relative cursor-pointer bg-[#292b48] px-5 py-2  rounded-lg font-semibold  text-lg" onClick={()=>setaddstu(!addstu)}>
           Add Participant
         </button></div>
       <div className="flex flex-col items-center mt-8">
