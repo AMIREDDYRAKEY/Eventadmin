@@ -1,11 +1,25 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios'
 const Events = () => {
   const navigate = useNavigate();
-
+ const api=axios.create({baseURL:'https://evebackend.onrender.com'})
+ try{
+  const res=api.post(' /api/events',{
+     headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+  if(res.data.token){
+    localStorage.setItem('token')
+    console.log(res.data.token)
+  }
+ }
+ catch(err){
+  console.log('error',err)
+ }
   return (
-    <div className="min-h-screen pb-10 relative md:z-[100]">
+    <div className="min-h-screen pb-10 relative md:z-[60]">
       <div className="flex justify-center ">
         <form className="bg-[#292b48] rounded-lg shadow-xl w-full max-w-[580px] p-5">
           <h3 className="text-[#98a2cb] text-sm border-b border-gray-700 pb-3 font-semibold">
@@ -18,14 +32,14 @@ const Events = () => {
                 <label className="text-xs text-[#98a2cb] mb-1">Event Title</label>
                 <input
                   type="text"
-                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none"
+                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none" 
                 />
               </div>
               <div className="flex flex-col md:w-1/2">
                 <label className="text-xs text-[#98a2cb] mb-1">Organizer</label>
                 <input
                   type="text"
-                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none"
+                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none" 
                 />
               </div>
             </div>
@@ -62,14 +76,14 @@ const Events = () => {
                 <label className="text-xs text-[#98a2cb] mb-1">Event Start</label>
                 <input
                   type="datetime-local"
-                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none"
+                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none" 
                 />
               </div>
               <div className="flex flex-col md:w-1/2">
                 <label className="text-xs text-[#98a2cb] mb-1">Event End</label>
                 <input
                   type="datetime-local"
-                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none"
+                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none" 
                 />
               </div>
             </div>

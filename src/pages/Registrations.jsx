@@ -54,7 +54,7 @@ const Registrations = () => {
           </div>
         ))}
       </div>
-     <div className='fixed md:top-1/4   md:left-1/4 top-1/4 right-2 md:z-50   '>
+     <div className='fixed md:top-1/4   md:left-1/4 top-1/4 right-2 md:z-0   '>
   {
     addstu && (
       <div><Addparticipant /></div>
