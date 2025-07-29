@@ -3,21 +3,32 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 const Events = () => {
   const navigate = useNavigate();
+  const handlesubmit= async ()=>{
  const api=axios.create({baseURL:'https://evebackend.onrender.com'})
  try{
-  const res=api.post(' /api/events',{
+  const token=localStorage.getItem("token")
+  const res= await api.post('/api/events',{
+     title: '',
+    organizer: '',
+    type: '',
+    category: '',
+    location: '',
+    start: '',
+    end: '',
+  },{
      headers: {
       Authorization: `Bearer ${token}`
     }
   })
   if(res.data.token){
     localStorage.setItem('token')
-    console.log(res.data.token)
+    setdata(res.data.token)
   }
  }
  catch(err){
   console.log('error',err)
  }
+}
   return (
     <div className="min-h-screen pb-10 relative md:z-[60]">
       <div className="flex justify-center ">
@@ -98,7 +109,7 @@ const Events = () => {
               </label>
             </div>
             <button
-              type="submit"
+               onClick={handlesubmit}
               className="bg-[#1b1f38] text-[#98a2cb] border border-[#545a72] px-3 py-1 rounded hover:bg-[#31365e] transition-all text-sm font-medium"
             >
               Create Event
