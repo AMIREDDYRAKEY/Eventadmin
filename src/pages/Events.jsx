@@ -1,120 +1,158 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
+
 const Events = () => {
   const navigate = useNavigate();
-  const handlesubmit= async ()=>{
- const api=axios.create({baseURL:'https://evebackend.onrender.com'})
- try{
-  const token=localStorage.getItem("token")
-  const res= await api.post('/api/events',{
-     title: '',
-    organizer: '',
-    type: '',
+  const [formData, setFormData] = useState({
+    eventName: '',
     category: '',
-    location: '',
-    start: '',
-    end: '',
-  },{
-     headers: {
-      Authorization: `Bearer ${token}`
+    venue: '',
+    date: '',
+    time: '',
+     description:''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const api = axios.create({ baseURL: 'https://evebackend.onrender.com' });
+
+    try {
+      const token = localStorage.getItem('token');
+      const res = await api.post(
+        '/api/events',
+        {
+          eventName: formData.eventName,
+          category: formData.category,
+          venue: formData.venue,
+          description:formData.description,
+          date: formData.date,
+          time: formData.time,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      alert('Event Created');
+      navigate('/');
+    } catch (err) {
+      console.log('Error:', err);
+
     }
-  })
-  if(res.data.token){
-    localStorage.setItem('token')
-    setdata(res.data.token)
-  }
- }
- catch(err){
-  console.log('error',err)
- }
-}
+  };
+
   return (
     <div className="min-h-screen pb-10 relative md:z-[60]">
-      <div className="flex justify-center ">
-        <form className="bg-[#292b48] rounded-lg shadow-xl w-full max-w-[580px] p-5">
+      <div className="flex justify-center">
+        <form onSubmit={handleSubmit} className="bg-[#292b48] rounded-lg shadow-xl w-full max-w-[580px] p-5">
           <h3 className="text-[#98a2cb] text-sm border-b border-gray-700 pb-3 font-semibold">
             Create Event
           </h3>
           <div className="py-4">
+            {/* General Info */}
             <h3 className="text-sm text-[#98a2cb] font-semibold mb-4">General Info</h3>
+
             <div className="flex flex-col md:flex-row gap-4 mb-5">
+              {/* Event Title */}
               <div className="flex flex-col md:w-1/2">
                 <label className="text-xs text-[#98a2cb] mb-1">Event Title</label>
                 <input
                   type="text"
-                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none" 
+                  name="eventName"
+                  value={formData.eventName}
+                  onChange={handleChange}
+                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none"
+                  placeholder="Enter event title"
                 />
               </div>
-              <div className="flex flex-col md:w-1/2">
-                <label className="text-xs text-[#98a2cb] mb-1">Organizer</label>
-                <input
-                  type="text"
-                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none" 
-                />
-              </div>
-            </div>
-            <div className="flex flex-col md:flex-row gap-4 mb-5">
-              <div className="flex flex-col md:w-1/2">
-                <label className="text-xs text-[#98a2cb] mb-1">Type</label>
-                <select className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none">
-                  <option value="">Select type</option>
-                  <option value="offline">Offline</option>
-                  <option value="online">Online</option>
-                </select>
-              </div>
+
+              {/* Category */}
               <div className="flex flex-col md:w-1/2">
                 <label className="text-xs text-[#98a2cb] mb-1">Category</label>
-                <select className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none">
-                  <option value="">Select category</option>
-                  <option value="technical">Technical</option>
-                  <option value="nontechnical">Non-Technical</option>
-                  <option value="cultural">Cultural</option>
+                <select
+                  name="category"
+                  value={formData.category}
+                  onChange={handleChange}
+                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none"
+                >
+                  <option value="">Select Category</option>
+                  <option value="TechExplore-24">TechExplore-24</option>
                 </select>
               </div>
             </div>
+
+            {/* Description */}
             <div className="flex flex-col mb-6">
-              <label className="text-xs text-[#98a2cb] mb-1">Location</label>
-              <select className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none">
-                <option value="">Select location</option>
-                <option value="auditorium">CSE-E Class Room</option>
-                <option value="lab1">Lab 1</option>
+              <label className="text-xs text-[#98a2cb] mb-1">Description</label>
+              <textarea
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                placeholder="Enter event description"
+                className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none resize-none h-24"
+              ></textarea>
+            </div>
+
+            {/* Venue */}
+            <div className="flex flex-col mb-6">
+              <label className="text-xs text-[#98a2cb] mb-1">Venue</label>
+              <select
+                name="venue"
+                value={formData.venue}
+                onChange={handleChange}
+                className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none"
+              >
+                <option value="">Select Venue</option>
+                <option value="CSE-E Class Room">CSE-E Class Room</option>
+                <option value="Lab 1">Lab 1</option>
               </select>
             </div>
+
+            {/* Date and Time */}
             <h3 className="text-md text-[#98a2cb] font-semibold mb-4">Date and Time</h3>
+
             <div className="flex flex-col md:flex-row gap-4 mb-5">
+              {/* Event Date */}
               <div className="flex flex-col md:w-1/2">
-                <label className="text-xs text-[#98a2cb] mb-1">Event Start</label>
+                <label className="text-xs text-[#98a2cb] mb-1">Event Date</label>
                 <input
-                  type="datetime-local"
-                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none" 
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none"
                 />
               </div>
+
+              {/* Event Time */}
               <div className="flex flex-col md:w-1/2">
-                <label className="text-xs text-[#98a2cb] mb-1">Event End</label>
+                <label className="text-xs text-[#98a2cb] mb-1">Event Time</label>
                 <input
-                  type="datetime-local"
-                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none" 
+                  type="time"
+                  name="time"
+                  value={formData.time}
+                  onChange={handleChange}
+                  className="rounded-md py-2 px-2 bg-[#1b1f38] text-[#98a2cb] text-sm outline-none"
                 />
               </div>
             </div>
-            <div className="flex gap-3 mb-5">
-              <input
-                type="checkbox"
-                className="bg-[#1b1f38] text-[#98a2cb]"
-                id="checkout"
-              />
-              <label htmlFor="checkout" className="text-sm text-[#98a2cb] font-semibold">
-                Check me out
-              </label>
-            </div>
+
+            {/* Submit Button */}
             <button
-               onClick={handlesubmit}
+              type="submit"
               className="bg-[#1b1f38] text-[#98a2cb] border border-[#545a72] px-3 py-1 rounded hover:bg-[#31365e] transition-all text-sm font-medium"
             >
               Create Event
             </button>
           </div>
+
         </form>
       </div>
     </div>
