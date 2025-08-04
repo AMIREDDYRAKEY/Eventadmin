@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
-const Events = () => {
+ import { useParams } from 'react-router-dom';
+const Updateevent = () => {
   const navigate = useNavigate();
   const [preview, setPreview] = useState(null);
-
+  const { eventId } = useParams();
   const [formData, setFormData] = useState({
     eventName: '',
     category: '',
@@ -49,7 +49,7 @@ const Events = () => {
         data.append('image', formData.image);
       }
 
-      const res = await api.post('/api/events', data, {
+      const res = await api.put(`/api/events/${eventId}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -72,7 +72,7 @@ const Events = () => {
           className="bg-[#292b48] rounded-lg shadow-xl w-full max-w-[580px] p-5 md:ml-0 ml-[-24px]"
         >
           <h3 className="text-[#98a2cb] text-sm border-b border-gray-700 pb-3 font-semibold">
-            Create Event
+            UPDATE EVENT
           </h3>
 
           <div className="py-4">
@@ -82,7 +82,7 @@ const Events = () => {
             <div className="flex flex-col md:flex-row gap-4 mb-5">
               {/* Event Title */}
               <div className="flex flex-col md:w-1/2">
-                <label className="text-xs text-[#98a2cb] mb-1">Event Title</label>
+                <label className="text-xs text-[#98a2cb] mb-1">Update Title</label>
                 <input
                   type="text"
                   name="eventName"
@@ -95,7 +95,7 @@ const Events = () => {
 
               {/* Category */}
               <div className="flex flex-col md:w-1/2">
-                <label className="text-xs text-[#98a2cb] mb-1">Category</label>
+                <label className="text-xs text-[#98a2cb] mb-1"> Update Category</label>
                 <select
                   name="category"
                   value={formData.category}
@@ -122,7 +122,7 @@ const Events = () => {
 
             {/* Venue */}
             <div className="flex flex-col mb-6">
-              <label className="text-xs text-[#98a2cb] mb-1">Venue</label>
+              <label className="text-xs text-[#98a2cb] mb-1"> Update Venue</label>
               <select
                 name="venue"
                 value={formData.venue}
@@ -141,7 +141,7 @@ const Events = () => {
             <div className="flex flex-col md:flex-row gap-4 mb-5">
               {/* Event Date */}
               <div className="flex flex-col md:w-1/2">
-                <label className="text-xs text-[#98a2cb] mb-1">Event Date</label>
+                <label className="text-xs text-[#98a2cb] mb-1">Update Date</label>
                 <input
                   type="date"
                   name="date"
@@ -153,7 +153,7 @@ const Events = () => {
 
               {/* Event Time */}
               <div className="flex flex-col md:w-1/2">
-                <label className="text-xs text-[#98a2cb] mb-1">Event Time</label>
+                <label className="text-xs text-[#98a2cb] mb-1">Update Time</label>
                 <input
                   type="time"
                   name="time"
@@ -166,7 +166,7 @@ const Events = () => {
 
             {/* Image Upload */}
             <div className="flex flex-col mb-6">
-              <label className="text-xs text-[#98a2cb] mb-1">Event Banner</label>
+              <label className="text-xs text-[#98a2cb] mb-1">Update Banner</label>
               <input type="file" accept="image/*" onChange={handleImageChange} />
               {preview && (
                 <img
@@ -182,7 +182,7 @@ const Events = () => {
               type="submit"
               className="bg-[#1b1f38] text-[#98a2cb] border border-[#545a72] px-3 py-1 rounded hover:bg-[#31365e] transition-all text-sm font-medium"
             >
-              Create Event
+              Update Event
             </button>
           </div>
         </form>
@@ -191,4 +191,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default Updateevent;
