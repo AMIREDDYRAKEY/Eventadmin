@@ -32,9 +32,10 @@ const Allevents =  () => {
 
     fetchEvents();
   }, []);
-  const handleupdate= (eventId)=>{
-     navigate(`/Updateevent ${eventId}`)
-  }
+  const handleupdate = (eventId) => {
+  navigate(`/Updateevent/${eventId}`);
+}
+
   const handledelete= async (eventId)=>{
      const api = axios.create({ baseURL: 'https://evebackend.onrender.com' });
 

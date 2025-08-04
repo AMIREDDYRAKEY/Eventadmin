@@ -3,11 +3,14 @@ import { FaUser } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Dashboard from './Dashboard';
+import Navbar from '../components/Navbar';
 const Signin = () => {
   const [sub, setsub] = useState('')
   const [open,setopen]=useState('')
   const [email,setemail]=useState('')
   const [password ,setpassword]=useState('')
+  const [data,setdata]=useState('')
   const [errors,seterrors]=useState({
     email:'',
     password:'',
@@ -37,16 +40,17 @@ const Signin = () => {
      const api = axios.create({ baseURL: 'https://evebackend.onrender.com' });
     try {
 
-      const res = await api.post('/api/auth/admin/signin',{
+      const res = await api.post('/api/auth/admin/login',{
         email,password
       });
       
      
       if (res.data.token) {
         localStorage.setItem("token", res.data.token)
-       setdata(res.data)
+       setdata(res.data);
+        navigate('/')
       }
-        
+       
     }
     catch (err) {
       console.log("error", err)

@@ -5,7 +5,7 @@ import axios from 'axios';
 const Updateevent = () => {
   const navigate = useNavigate();
   const [preview, setPreview] = useState(null);
-  const { eventId } = useParams();
+const { id: eventId } = useParams();
   const [formData, setFormData] = useState({
     eventName: '',
     category: '',
@@ -56,11 +56,11 @@ const Updateevent = () => {
         },
       });
 
-      alert('Event Created');
+      alert('Event Update Sucessfully');
       navigate('/');
     } catch (err) {
       console.error('Error:', err);
-      alert('Event creation failed. Check console for details.');
+      alert('Event Updation failed. Check console for details.');
     }
   };
 
