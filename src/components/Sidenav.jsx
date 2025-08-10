@@ -13,7 +13,7 @@ const Sidenav = () => {
     const [active, setactive] = useState('dashboard');
     const navigate=useNavigate('')
     return (
-        <div className='md:flex min-h-screen h-full md:z-0 z-50  '>
+        <div className='md:flex min-h-screen h-full lg:z-[200] z-[100]  '>
             {/* Sidebar */}
             <div className="bg-[#292b48] shadow-xl  min-h-screen h-full w-[250px] md:w-[250px]     text-white ">
                 <div className='flex flex-col gap-1 items-start px-5'>

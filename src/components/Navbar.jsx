@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IoMdMenu, IoIosNotifications , } from 'react-icons/io';
 import { CgProfile } from 'react-icons/cg';
 import Sidenav from './Sidenav';
-import Adminlogin from '../pages/Adminlogin';
+// import Adminlogin from '../pages/Adminlogin';
+import Signin from '../pages/Signin';
 import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -15,7 +16,7 @@ const Navbar = () => {
   }, []);
 
   const handlelogin =()=>{
-    navigate('/Adminlogin')
+    navigate('/signin')
   }
   const handlelogout=()=>{
     setlogin(false)

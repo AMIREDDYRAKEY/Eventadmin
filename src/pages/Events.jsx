@@ -65,7 +65,7 @@ const Events = () => {
   };
 
   return (
-    <div className="min-h-screen pb-10 relative md:z-[90]">
+    <div className="min-h-screen pb-10 relative md:z-[80]">
       <div className="flex justify-center">
         <form
           onSubmit={handleSubmit}

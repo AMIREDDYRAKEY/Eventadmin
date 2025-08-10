@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
- import { useParams } from 'react-router-dom';
+
 const Updateevent = () => {
   const navigate = useNavigate();
+  const { id: eventId } = useParams();
+
   const [preview, setPreview] = useState(null);
-const { id: eventId } = useParams();
   const [formData, setFormData] = useState({
     eventName: '',
     category: '',
@@ -16,6 +17,39 @@ const { id: eventId } = useParams();
     image: null
   });
 
+  // Fetch existing event details
+ useEffect(() => {
+  const fetchEvent = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const res = await axios.get(`https://evebackend.onrender.com/api/events/${eventId}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+
+      const e = res.data;
+
+      setFormData({
+        eventName: e.eventName || '',
+        category: e.category || '',
+        venue: e.venue || '',
+        date: e.date?.split('T')[0] || '',
+        time: e.time || '',
+        description: e.description || '',
+        image: null
+      });
+
+      if (e.imageUrl) setPreview(e.imageUrl);
+    } catch (err) {
+      console.error('Error fetching event details:', err);
+      alert('Failed to fetch event details');
+    }
+  };
+
+  fetchEvent();
+}, [eventId]);
+
+
+  // Image change handler
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -23,7 +57,7 @@ const { id: eventId } = useParams();
         ...prev,
         image: file,
       }));
-      setPreview(URL.createObjectURL(file));  
+      setPreview(URL.createObjectURL(file));
     }
   };
 
@@ -31,6 +65,7 @@ const { id: eventId } = useParams();
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Update event handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     const api = axios.create({ baseURL: 'https://evebackend.onrender.com' });
@@ -49,18 +84,18 @@ const { id: eventId } = useParams();
         data.append('image', formData.image);
       }
 
-      const res = await api.put(`/api/events/${eventId}`, data, {
+      await api.put(`/api/events/${eventId}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
         },
       });
 
-      alert('Event Update Sucessfully');
+      alert('Event updated successfully');
       navigate('/');
     } catch (err) {
-      console.error('Error:', err);
-      alert('Event Updation failed. Check console for details.');
+      console.error('Error updating event:', err);
+      alert('Event update failed');
     }
   };
 
@@ -76,11 +111,9 @@ const { id: eventId } = useParams();
           </h3>
 
           <div className="py-4">
-            {/* General Info */}
             <h3 className="text-sm text-[#98a2cb] font-semibold mb-4">General Info</h3>
 
             <div className="flex flex-col md:flex-row gap-4 mb-5">
-              {/* Event Title */}
               <div className="flex flex-col md:w-1/2">
                 <label className="text-xs text-[#98a2cb] mb-1">Update Title</label>
                 <input
@@ -93,7 +126,6 @@ const { id: eventId } = useParams();
                 />
               </div>
 
-              {/* Category */}
               <div className="flex flex-col md:w-1/2">
                 <label className="text-xs text-[#98a2cb] mb-1"> Update Category</label>
                 <select
@@ -108,7 +140,6 @@ const { id: eventId } = useParams();
               </div>
             </div>
 
-            {/* Description */}
             <div className="flex flex-col mb-6">
               <label className="text-xs text-[#98a2cb] mb-1">Description</label>
               <textarea
@@ -120,7 +151,6 @@ const { id: eventId } = useParams();
               ></textarea>
             </div>
 
-            {/* Venue */}
             <div className="flex flex-col mb-6">
               <label className="text-xs text-[#98a2cb] mb-1"> Update Venue</label>
               <select
@@ -135,11 +165,9 @@ const { id: eventId } = useParams();
               </select>
             </div>
 
-            {/* Date and Time */}
             <h3 className="text-md text-[#98a2cb] font-semibold mb-4">Date and Time</h3>
 
             <div className="flex flex-col md:flex-row gap-4 mb-5">
-              {/* Event Date */}
               <div className="flex flex-col md:w-1/2">
                 <label className="text-xs text-[#98a2cb] mb-1">Update Date</label>
                 <input
@@ -151,7 +179,6 @@ const { id: eventId } = useParams();
                 />
               </div>
 
-              {/* Event Time */}
               <div className="flex flex-col md:w-1/2">
                 <label className="text-xs text-[#98a2cb] mb-1">Update Time</label>
                 <input
@@ -164,7 +191,6 @@ const { id: eventId } = useParams();
               </div>
             </div>
 
-            {/* Image Upload */}
             <div className="flex flex-col mb-6">
               <label className="text-xs text-[#98a2cb] mb-1">Update Banner</label>
               <input type="file" accept="image/*" onChange={handleImageChange} />
@@ -177,7 +203,6 @@ const { id: eventId } = useParams();
               )}
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               className="bg-[#1b1f38] text-[#98a2cb] border border-[#545a72] px-3 py-1 rounded hover:bg-[#31365e] transition-all text-sm font-medium"
