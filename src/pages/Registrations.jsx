@@ -37,15 +37,15 @@ const Registrations = () => {
       </div>
 
       <div className="text-end md:mt-[-50px] mt-[30px]">
-        {/* <button
+        <button
           className="text-[#98a2cb] md:z-[100] relative cursor-pointer bg-[#292b48] px-5 py-2 rounded-lg font-semibold text-lg"
           onClick={() => setaddstu(!addstu)}
         >
           Add Participant
-        </button> */}
+        </button>
       </div>
 
-      <div className="flex flex-col items-center pt-[70px]">
+      <div className="flex flex-col items-center mt-8">
         {data.map((info, index) => (
           <div
             key={index}
