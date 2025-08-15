@@ -23,8 +23,8 @@ const Registrations = () => {
       } catch (err) {
         console.error("Error:", err);
       }
+      
     };
-
     fetchUsers();
   }, []);
 
@@ -56,7 +56,8 @@ const Registrations = () => {
             <p className="font-semibold text-[#98a2cb] uppercase">{info.idNo}</p>
             <p className="font-semibold text-[#98a2cb]">{info.section}</p>
             <p className="font-semibold text-[#98a2cb]">{info.year}</p>
-            <p className="font-semibold text-[#98a2cb]">{info.registeredEvents}</p>
+            <p className="font-semibold text-[#98a2cb]">{info.registerdEvents}</p>
+            
           </div>
         ))}
       </div>

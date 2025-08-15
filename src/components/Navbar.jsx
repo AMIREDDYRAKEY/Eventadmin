@@ -36,7 +36,7 @@ const Navbar = () => {
           >
             <IoMdMenu />
           </button>
-          <h3 className="text-xl md:text-2xl font-bold hidden md:flex">Tech Explore</h3>
+          <h3 className='mt-[15px] text-2xl md:flex hidden font-bold'>Tech  <strong className='text-[#ff009b]'>Exlplore</strong> </h3>
         </div>
 
         {/* Right content */}
