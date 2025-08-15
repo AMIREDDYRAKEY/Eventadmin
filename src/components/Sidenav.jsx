@@ -28,27 +28,20 @@ const Sidenav = () => {
                             <button
                                 className='text-md text-[#74779a] flex font-semibold hover:text-white'
                                 onClick={() => {
-                                    setdashboardopen(!dashboardopen);
-                                    setactive('dashboard');
-                                    
-
+                                    navigate('/Dashboard');
                                 }}
                             >
                                 Dashboard
                             </button>
                         </div>
 
-                        {dashboardopen && (
                             <div className='flex flex-col gap-4 mt-[10px] ml-[10px] text-[#74779a]'>
                                 <li className='hover:text-white text-sm text-center'>
                                     <button onClick={() =>{ navigate('/Registrations')} }>Registrations</button>
                                 </li>
-                                <li className='hover:text-white text-sm'>
-                                    <button>Analytics</button>
-                                </li>
+                                 
                                 
                             </div>
-                        )}
                     </div>
 
                     {/* Events Menu */}
@@ -64,17 +57,16 @@ const Sidenav = () => {
                         </div>
 
                         {events && (
-                            <div className='flex flex-col gap-4 mt-[10px] ml-[10px] text-[#74779a]'>
+                            <div className='flex flex-col gap-4 mt-[3px] ml-[10px] text-[#74779a]'>
                                 <li className='hover:text-white text-sm text-center'><button onClick={()=>navigate('/Events')}>Create Event</button></li>
                                 <li className='text-center hover:text-white text-sm ml-[-23px]' onClick={()=>navigate('/Allevents')}><button>All Events</button></li>
-                                <li className='text-center hover:text-white text-sm ml-[-23px]'><button>Discount</button></li>
-                                <li className='text-center hover:text-white text-sm ml-[-43px]'><button>Guest</button></li>
+                               
                             </div>
                         )}
                     </div>
 
                     {/* Theme Menu */}
-                    <div className='flex flex-col mt-[10px] gap-3'>
+                    {/* <div className='flex flex-col mt-[10px] gap-3'>
                         <div className='flex gap-3'>
                             <span className='text-xl text-[#74779a]'><VscSymbolEvent /></span>
                             <button
@@ -91,7 +83,7 @@ const Sidenav = () => {
                                 <li className='hover:text-white text-sm'><button>Light</button></li>
                             </div>
                         )}
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
